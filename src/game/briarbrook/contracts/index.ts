@@ -28,7 +28,7 @@ export function getContractById(id: string): Contract | undefined {
 export function getAvailableContracts(
   category: ContractCategory,
   completedContractIds: string[],
-  categoryMastery: number,
+  _categoryMastery: number,
   savingMastery: number = 0
 ): { contract: Contract; locked: boolean; lockReason?: string }[] {
   const contracts = getContractsByCategory(category);

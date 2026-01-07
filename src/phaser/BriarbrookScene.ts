@@ -30,7 +30,6 @@ export class BriarbrookScene extends Phaser.Scene {
   private nearbyBuilding: BuildingSprite | null = null;
   private interactHint!: Phaser.GameObjects.Container;
   private isMovementPaused: boolean = false;
-  private glowTween: Phaser.Tweens.Tween | null = null;
   private glowAlpha: number = 0;
 
   constructor() {
@@ -311,7 +310,7 @@ export class BriarbrookScene extends Phaser.Scene {
 
   private setupGlowAnimation() {
     // Pulsing glow effect
-    this.glowTween = this.tweens.add({
+    this.tweens.add({
       targets: this,
       glowAlpha: 0.6,
       duration: 800,

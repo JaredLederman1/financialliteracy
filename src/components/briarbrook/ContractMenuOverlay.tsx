@@ -1,4 +1,4 @@
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { X, Lock, Star, Coins, Sparkles, CheckCircle2 } from 'lucide-react';
 import { getBuildingById } from '../../game/briarbrook/buildings';
 import { getAvailableContracts } from '../../game/briarbrook/contracts';

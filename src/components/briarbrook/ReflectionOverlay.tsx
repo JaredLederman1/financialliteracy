@@ -12,7 +12,7 @@ interface ReflectionOverlayProps {
 
 export function ReflectionOverlay({
   contract,
-  player,
+  player: _player,
   onSubmit,
 }: ReflectionOverlayProps) {
   const [selectedId, setSelectedId] = useState<string | null>(null);
