@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* CSS Variables for theming */
+:root {
+  --color-bg-start: #e0f2fe;
+  --color-bg-end: #f0f9ff;
+  --color-surface: #ffffff;
+  --color-surface-elevated: #ffffff;
+  --color-primary: #6366f1;
+  --color-primary-light: #818cf8;
+  --color-text: #334155;
+  --color-text-muted: #64748b;
+  --color-positive: #10b981;
+  --color-warning: #f59e0b;
+  --color-danger: #f43f5e;
+}
+
+/* Base styles */
+* {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Nunito', system-ui, sans-serif;
+  color: var(--color-text);
+  background: linear-gradient(180deg, var(--color-bg-start) 0%, var(--color-bg-end) 100%);
+  background-attachment: fixed;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Remove default button styles */
+button {
+  font-family: inherit;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(99, 102, 241, 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(99, 102, 241, 0.5);
+}
+
+/* Utility classes */
+@layer components {
+  /* Card base */
+  .card {
+    @apply bg-white rounded-2xl shadow-soft p-5;
+  }
+
+  .card-elevated {
+    @apply bg-white rounded-2xl shadow-soft p-5 border border-surface-200/50;
+  }
+
+  /* Buttons */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 font-semibold rounded-xl transition-all duration-200 active:scale-95;
+  }
+
+  .btn-primary {
+    @apply btn px-6 py-3 bg-primary-500 text-white hover:bg-primary-600 shadow-soft hover:shadow-glow;
+  }
+
+  .btn-secondary {
+    @apply btn px-5 py-2.5 bg-surface-100 text-slate-700 hover:bg-surface-200 border border-surface-300;
+  }
+
+  .btn-ghost {
+    @apply btn px-4 py-2 text-slate-600 hover:bg-surface-100;
+  }
+
+  .btn-positive {
+    @apply btn px-6 py-3 bg-positive-500 text-white hover:bg-positive-600 shadow-soft hover:shadow-glow-positive;
+  }
+
+  /* Stat pills */
+  .stat-pill {
+    @apply inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-semibold;
+  }
+
+  /* Badge chips */
+  .badge-chip {
+    @apply inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-bold uppercase tracking-wide;
+  }
+
+  /* Glass effect */
+  .glass {
+    @apply bg-white/80 backdrop-blur-md;
+  }
+
+  /* Map node base */
+  .map-node {
+    @apply relative flex flex-col items-center;
+  }
+
+  .map-node-circle {
+    @apply w-16 h-16 rounded-full flex items-center justify-center text-2xl shadow-soft transition-all duration-300;
+  }
+
+  /* Input styles */
+  .input {
+    @apply w-full px-4 py-3 rounded-xl border-2 border-surface-200 bg-white text-slate-800 font-medium placeholder-slate-400 focus:outline-none focus:border-primary-400 focus:ring-2 focus:ring-primary-100 transition-all;
+  }
+}
+
+/* Background decorations */
+.bg-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+/* Overlay backdrop */
+.overlay-backdrop {
+  @apply fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-40;
+}
+
+/* Progress bar */
+.progress-bar {
+  @apply h-2 rounded-full bg-surface-200 overflow-hidden;
+}
+
+.progress-bar-fill {
+  @apply h-full rounded-full transition-all duration-500 ease-out;
+}
