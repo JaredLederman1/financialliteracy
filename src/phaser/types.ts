@@ -1,5 +1,6 @@
 import type { Avatar } from '../onboarding/types';
 import type { PlayerProfile } from '../game/types';
+import type { BriarbrookPlayer } from '../game/briarbrook/types';
 
 // ============================================
 // PHASER GAME TYPES
@@ -29,24 +30,27 @@ export interface PlayerState {
 export type PhaserToReactEvent =
   | { type: 'BUILDING_CLICKED'; buildingId: string; questId: string }
   | { type: 'BUILDING_INTERACT'; buildingId: string; questId: string }
-  | { type: 'PLAYER_MOVED'; x: number; y: number };
+  | { type: 'PLAYER_MOVED'; x: number; y: number }
+  | { type: 'SCENE_READY' };
 
 // Events from React to Phaser
 export type ReactToPhaserEvent =
   | { type: 'UPDATE_UNLOCKED_QUESTS'; completedQuestIds: string[] }
   | { type: 'UPDATE_PLAYER_AVATAR'; avatar: Avatar }
   | { type: 'TELEPORT_PLAYER'; x: number; y: number }
-  | { type: 'SCENE_READY' };
+  | { type: 'SCENE_READY' }
+  | { type: 'PAUSE_MOVEMENT' }
+  | { type: 'RESUME_MOVEMENT' };
 
 // Game state shared between React and Phaser
 export interface SharedGameState {
-  player: PlayerProfile | null;
+  player: PlayerProfile | BriarbrookPlayer | null;
   completedQuestIds: string[];
   avatar: Avatar | null;
 }
 
 // ============================================
-// BUILDING DEFINITIONS
+// BUILDING DEFINITIONS (Legacy - kept for backward compatibility)
 // ============================================
 
 export const TOWN_BUILDINGS: Omit<TownBuilding, 'unlocked'>[] = [
@@ -125,4 +129,3 @@ export const MAP_HEIGHT = 600;
 // Player settings
 export const PLAYER_SPEED = 200;
 export const PLAYER_SIZE = 32;
-
