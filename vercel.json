@@ -1,9 +1,6 @@
 {
   "buildCommand": "cd budget-game && npm install && npm run build",
   "outputDirectory": "budget-game/dist",
-  "devCommand": "cd budget-game && npm run dev",
-  "installCommand": "cd budget-game && npm install",
-  "framework": "vite",
-  "rootDirectory": "budget-game"
+  "installCommand": "cd budget-game && npm install"
 }
 
